@@ -104,5 +104,4 @@ vllm serve google/gemma-4-31B-it \
 
 ```
 
-### License
-- 
+### Licensing
