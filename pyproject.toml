@@ -8,7 +8,9 @@ dependencies = [
     "numpy>=2.4.4",
     "pandas>=3.0.2",
     "torch>=2.11.0",
+    "transformers>=5.7.0",
     "huggingface-hub>=1.7.2",
-    "locust"
+    "openai>=2.33.0",
+    "locust>=2.43.4"
 
 ]
