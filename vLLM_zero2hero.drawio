@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.2 Chrome/134.0.6998.205 Electron/35.3.0 Safari/537.36" version="27.0.2">
   <diagram name="Page-1" id="XEbMcDbbHL5TGfWlo2Hi">
-    <mxGraphModel dx="1018" dy="3091" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1571" dy="3279" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2718,7 +2718,7 @@
         <mxCell id="6MimTV4tB0RpQHZ1C2n4-211" value="Block-4" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;" parent="1" vertex="1">
           <mxGeometry x="2283.12" y="860.25" width="210" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="6MimTV4tB0RpQHZ1C2n4-212" value="&lt;table class=&quot;min-w-full border-collapse text-sm leading-[1.7] whitespace-normal&quot;&gt;&lt;thead class=&quot;text-left&quot;&gt;&lt;tr&gt;&lt;th scope=&quot;col&quot; class=&quot;text-text-100 border-b-0.5 border-border-300/60 py-2 pr-4 align-top font-bold&quot;&gt;Term&lt;/th&gt;&lt;th scope=&quot;col&quot; class=&quot;text-text-100 border-b-0.5 border-border-300/60 py-2 pr-4 align-top font-bold&quot;&gt;Meaning&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;code class=&quot;bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]&quot;&gt;2&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;For both K and V (two matrices)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;code class=&quot;bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]&quot;&gt;num_tokens (16)&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;Sequence length cached in this block&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;code class=&quot;bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]&quot;&gt;num_heads&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;Number of attention heads&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;code class=&quot;bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]&quot;&gt;head_dim&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;Dimension per head (e.g., 128)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;code class=&quot;bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]&quot;&gt;bytes_per_param&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;Precision — fp16=2 bytes, fp32=4 bytes, int8=1 byte&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;" parent="1" vertex="1">
+        <mxCell id="6MimTV4tB0RpQHZ1C2n4-212" value="&lt;table class=&quot;min-w-full border-collapse text-sm leading-[1.7] whitespace-normal&quot;&gt;&lt;thead class=&quot;text-left&quot;&gt;&lt;tr&gt;&lt;th class=&quot;text-text-100 border-b-0.5 border-border-300/60 py-2 pr-4 align-top font-bold&quot; scope=&quot;col&quot;&gt;Term&lt;/th&gt;&lt;th class=&quot;text-text-100 border-b-0.5 border-border-300/60 py-2 pr-4 align-top font-bold&quot; scope=&quot;col&quot;&gt;Meaning&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;code class=&quot;bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]&quot;&gt;2&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;For both K and V (two matrices)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;code class=&quot;bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]&quot;&gt;num_tokens (16)&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;Sequence length cached in this block&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;code class=&quot;bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]&quot;&gt;num_heads&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;Number of attention heads&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;code class=&quot;bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]&quot;&gt;head_dim&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;Dimension per head (e.g., 128)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;code class=&quot;bg-text-200/5 border border-0.5 border-border-300 text-danger-000 whitespace-pre-wrap rounded-[0.4rem] px-1 py-px text-[0.9rem]&quot;&gt;bytes_per_param&lt;/code&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;Precision — fp16=2 bytes, fp32=4 bytes, int8=1 byte&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;" parent="1" vertex="1">
           <mxGeometry x="940" y="1050" width="430" height="140" as="geometry" />
         </mxCell>
         <mxCell id="6MimTV4tB0RpQHZ1C2n4-213" value="Each block memory = 2 × num_tokens × num_heads × head_dim × bytes_per_param" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Comic Sans MS;" parent="1" vertex="1">
@@ -2741,7 +2741,7 @@
         <mxCell id="6MimTV4tB0RpQHZ1C2n4-221" value="Each block memory&amp;nbsp;= 2 × 6 × 2 × 4 × 2 × 4" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Comic Sans MS;" parent="1" vertex="1">
           <mxGeometry x="1120" y="1330" width="250" height="30" as="geometry" />
         </mxCell>
-        <UserObject label="&lt;div class=&quot;overflow-x-auto w-full px-2 mb-6&quot;&gt;&lt;table class=&quot;min-w-full border-collapse text-sm leading-[1.7] whitespace-normal&quot;&gt;&lt;thead class=&quot;text-left&quot;&gt;&lt;tr&gt;&lt;th scope=&quot;col&quot; class=&quot;text-text-100 border-b-0.5 border-border-300/60 py-2 pr-4 align-top font-bold&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;Step&lt;/font&gt;&lt;/th&gt;&lt;th scope=&quot;col&quot; class=&quot;text-text-100 border-b-0.5 border-border-300/60 py-2 pr-4 align-top font-bold&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;Operation&lt;/font&gt;&lt;/th&gt;&lt;th scope=&quot;col&quot; class=&quot;text-text-100 border-b-0.5 border-border-300/60 py-2 pr-4 align-top font-bold&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;Result&lt;/font&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;K and V&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;2 × 6&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;12&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;× num_heads&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;12 × 2&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;24&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;× head_dim&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;24 × 4&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;96&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;× bytes (fp16)&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;96 × 2&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;192&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;× num_layers&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;192 × 4&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;strong&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;768 bytes&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;hr class=&quot;border-border-200 border-t-0.5 my-3 mx-1.5&quot;&gt;&lt;h3 class=&quot;text-text-100 mt-2 -mb-1 text-base font-bold&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;Final Answer&lt;/font&gt;&lt;/h3&gt;&lt;div role=&quot;group&quot; aria-label=&quot;Code&quot; tabindex=&quot;0&quot; class=&quot;relative group/copy bg-bg-000/50 border-0.5 border-border-400 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-100&quot;&gt;&lt;div class=&quot;overflow-x-auto&quot;&gt;&lt;div style=&quot;background: transparent; color: rgb(234, 236, 240);&quot; class=&quot;code-block__code !my-0 !rounded-lg !text-sm !leading-relaxed p-3.5&quot;&gt;&lt;code style=&quot;background: transparent; white-space: pre-wrap; color: rgb(234, 236, 240);&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;Total Block Memory = 768 bytes&lt;/font&gt;&lt;/code&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" id="6MimTV4tB0RpQHZ1C2n4-222">
+        <UserObject label="&lt;div class=&quot;overflow-x-auto w-full px-2 mb-6&quot;&gt;&lt;table class=&quot;min-w-full border-collapse text-sm leading-[1.7] whitespace-normal&quot;&gt;&lt;thead class=&quot;text-left&quot;&gt;&lt;tr&gt;&lt;th class=&quot;text-text-100 border-b-0.5 border-border-300/60 py-2 pr-4 align-top font-bold&quot; scope=&quot;col&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;Step&lt;/font&gt;&lt;/th&gt;&lt;th class=&quot;text-text-100 border-b-0.5 border-border-300/60 py-2 pr-4 align-top font-bold&quot; scope=&quot;col&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;Operation&lt;/font&gt;&lt;/th&gt;&lt;th class=&quot;text-text-100 border-b-0.5 border-border-300/60 py-2 pr-4 align-top font-bold&quot; scope=&quot;col&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;Result&lt;/font&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;K and V&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;2 × 6&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;12&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;× num_heads&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;12 × 2&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;24&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;× head_dim&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;24 × 4&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;96&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;× bytes (fp16)&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;96 × 2&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;192&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;× num_layers&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;192 × 4&lt;/font&gt;&lt;/td&gt;&lt;td class=&quot;border-b-0.5 border-border-300/30 py-2 pr-4 align-top&quot;&gt;&lt;strong&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;768 bytes&lt;/font&gt;&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;hr class=&quot;border-border-200 border-t-0.5 my-3 mx-1.5&quot;&gt;&lt;h3 class=&quot;text-text-100 mt-2 -mb-1 text-base font-bold&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;Final Answer&lt;/font&gt;&lt;/h3&gt;&lt;div class=&quot;relative group/copy bg-bg-000/50 border-0.5 border-border-400 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-100&quot; tabindex=&quot;0&quot; aria-label=&quot;Code&quot; role=&quot;group&quot;&gt;&lt;div class=&quot;overflow-x-auto&quot;&gt;&lt;div class=&quot;code-block__code !my-0 !rounded-lg !text-sm !leading-relaxed p-3.5&quot; style=&quot;background: transparent; color: rgb(234, 236, 240);&quot;&gt;&lt;code style=&quot;background: transparent; white-space: pre-wrap; color: rgb(234, 236, 240);&quot;&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;Total Block Memory = 768 bytes&lt;/font&gt;&lt;/code&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" id="6MimTV4tB0RpQHZ1C2n4-222">
           <mxCell style="text;whiteSpace=wrap;html=1;fontFamily=Comic Sans MS;" parent="1" vertex="1">
             <mxGeometry x="1120" y="1370" width="260" height="250" as="geometry" />
           </mxCell>
@@ -3058,7 +3058,7 @@
         <mxCell id="9ZPk74cxxBZaByfaZwbH-8" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fad7ac;strokeColor=#b46504;fontSize=13;fontFamily=Comic Sans MS;" parent="1" vertex="1">
           <mxGeometry x="739.37" y="789.25" width="20" height="22" as="geometry" />
         </mxCell>
-        <mxCell id="9ZPk74cxxBZaByfaZwbH-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;" parent="1" edge="1">
+        <mxCell id="9ZPk74cxxBZaByfaZwbH-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;fontFamily=Comic Sans MS;" parent="1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="69" y="1410" as="sourcePoint" />
             <mxPoint x="159" y="1180" as="targetPoint" />
@@ -3067,14 +3067,326 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="9ZPk74cxxBZaByfaZwbH-9" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+        <mxCell id="9ZPk74cxxBZaByfaZwbH-9" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Comic Sans MS;" parent="1" vertex="1">
           <mxGeometry x="20" y="1460" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="9ZPk74cxxBZaByfaZwbH-10" value="" style="endArrow=classic;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=1;" parent="1" edge="1">
+        <mxCell id="9ZPk74cxxBZaByfaZwbH-10" value="" style="endArrow=classic;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=1;fontFamily=Comic Sans MS;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="149" y="1591" as="sourcePoint" />
             <mxPoint x="109" y="1540" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="-bKzWnLbuIaEwaNs5Psm-1" value="PagedAttention: Prompts, Tokenization &amp;amp; Block Allocation" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontFamily=Comic Sans MS;" parent="1" vertex="1">
+          <mxGeometry x="311.87" y="3526" width="900" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="-bKzWnLbuIaEwaNs5Psm-25" value="allocate_slots() gives us (CPU Block Table):" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=14;fontStyle=1;fontFamily=Comic Sans MS;" parent="1" vertex="1">
+          <mxGeometry x="950.62" y="3320" width="400" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-1" value="Example:" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=14;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="3608" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-2" value="prompts = [&lt;br&gt;&amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;span style=&quot;&quot;&gt;&quot;Hi, today we are&quot;,&lt;/span&gt;,&lt;br&gt;&amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;span style=&quot;&quot;&gt;&quot;LLM is a beautiful concept of&quot;,&lt;/span&gt;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&quot;Hello there&quot;,&lt;br&gt;]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;fontSize=13;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="3633" width="340" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-3" value="for the purpose of this example i&#39;m simplifying the tokenization, but it&#39;s still consistent, e.g. notice that &#39;is&#39; == 5, and BOS token == 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffde7;strokeColor=#f0c040;align=left;fontSize=11;fontStyle=2;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="3763" width="340" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-4" value="block_size = 4" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=14;fontStyle=1;fontColor=#cc0000;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="3853" width="200" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-5" value="After tokenization:&lt;br&gt;[1, 2, 3, 4, 5]&lt;br&gt;[1, 6, 5, 7, 8, 9, 10]&lt;br&gt;[1, 12, 13]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;fontSize=13;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="444" y="3633" width="340" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Comic Sans MS;" edge="1" parent="1" source="vDKtP158vBrgW5-EhDf4-2" target="vDKtP158vBrgW5-EhDf4-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-7" value="allocate_slots&lt;br&gt;gives us this:" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="864" y="3613" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-8" value="CPU" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=14;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="1084" y="3613" width="60" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-9" value="&lt;b&gt;block_id = 1&lt;/b&gt;&lt;br&gt;ref_cnt = 1&lt;br&gt;block_hash" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="864" y="3658" width="130" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-10" value="&lt;b&gt;block_id = 2&lt;/b&gt;&lt;br&gt;ref_cnt = 1&lt;br&gt;block_hash" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="1014" y="3658" width="130" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-11" value="&lt;b&gt;block_id = 3&lt;/b&gt;&lt;br&gt;ref_cnt = 1&lt;br&gt;block_hash" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="864" y="3743" width="130" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-12" value="&lt;b&gt;block_id = 4&lt;/b&gt;&lt;br&gt;ref_cnt = 1&lt;br&gt;block_hash" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="1014" y="3743" width="130" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-13" value="&lt;b&gt;block_id = 5&lt;/b&gt;&lt;br&gt;ref_cnt = 1&lt;br&gt;block_hash" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="864" y="3828" width="130" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Comic Sans MS;" edge="1" parent="1" source="vDKtP158vBrgW5-EhDf4-5" target="vDKtP158vBrgW5-EhDf4-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-15" value="Seq 1  →  2 blocks" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontColor=#6c8ebf;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="1164" y="3683" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-16" value="Seq 2  →  2 blocks" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontColor=#82b366;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="1164" y="3768" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-17" value="Seq 3  →  1 block" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontColor=#d79b00;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="1164" y="3853" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-18" value="continuous batching" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=16;fontStyle=3;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="3953" width="320" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-19" value="converts the above into:" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="3978" width="320" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-20" value="input_ids = [1, 2, 3, 4, 5, 1, 6, 5, 7, 8, 9, 10, 1, 12, 13]&lt;br&gt;positions  = [0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 5,  6, 0,  1,  2]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f3f3;strokeColor=#555555;align=left;fontSize=14;fontFamily=Comic Sans MS;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4008" width="900" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-21" value="i.e. we flatten all of the sequences into a single &quot;super sequence&quot;" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=2;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4078" width="800" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-22" value="next up we compute slot_mapping:" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4116" width="400" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-23" value="slot_mapping = [4, 5, 6, 7, 8, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;align=left;fontSize=15;fontFamily=Comic Sans MS;fontStyle=1;fontColor=#6a006a;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4143" width="900" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-24" value="slot_mapping tells us where KVs belonging to tokens from each sequence go to inside the KV cache paged memory!" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffde7;strokeColor=#f0c040;align=left;fontSize=12;fontStyle=2;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="944" y="4103" width="340" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-25" value="e.g. we can see that 2nd sequence goes to:&lt;br&gt;[12, 13, 14, 15, 16, 17, 18] — why?&lt;br&gt;&lt;br&gt;well - that sequence has blocks with ids 3 and 4&lt;br&gt;and since block_size = 4 those slots start at&lt;br&gt;positions 12 and 16; and since we have 7 tokens&lt;br&gt;we populate the 3rd block fully and 75% of block 4!" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffde7;strokeColor=#f0c040;align=left;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="944" y="4193" width="420" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-26" value="GPU" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=14;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4218" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-27" value="initial state:" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontStyle=2;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4238" width="110" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-28" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="149" y="4213" width="740" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-29" value="blk 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="164" y="4226" width="115" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-30" value="blk 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="299" y="4226" width="115" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-31" value="blk 3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="434" y="4226" width="115" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-32" value="blk 4" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="569" y="4226" width="115" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-33" value="blk 5" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="704" y="4226" width="115" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-34" value="these belong to 2nd sequence" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontStyle=2;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="374" y="4288" width="280" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-35" value="inside attn layer, during prefill, we compute KVs" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=15;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4328" width="800" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-36" value="and we store them in paged memory! so we end up with:" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=15;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4353" width="800" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-37" value="reshape_and_cache_flash&lt;br&gt;is responsible for updating the paged memory!" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontStyle=2;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="944" y="4333" width="380" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-38" value="GPU" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=14;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4393" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-39" value="state after&lt;br&gt;fwd pass&lt;br&gt;(prefill)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontStyle=2;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4413" width="100" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-40" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="149" y="4388" width="740" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-41" value="blk 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=#336791;fontColor=#ffffff;fontSize=13;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="164" y="4401" width="115" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-42" value="blk 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=#336791;fontColor=#ffffff;fontSize=13;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="299" y="4401" width="115" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-43" value="blk 3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#5a8040;fontColor=#ffffff;fontSize=13;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="434" y="4401" width="115" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-44" value="blk 4" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#5a8040;fontColor=#ffffff;fontSize=13;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="569" y="4401" width="115" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-45" value="blk 5" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#b07800;fontColor=#ffffff;fontSize=13;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="704" y="4401" width="115" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-46" value="KVs for 5 tokens of 1st sequence" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontColor=#6c8ebf;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="149" y="4446" width="265" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-47" value="KVs for 7 tokens of 2nd sequence" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontColor=#82b366;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="419" y="4446" width="265" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-48" value="KVs for 3 tokens of 3rd seq" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontColor=#d79b00;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="684" y="4446" width="205" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-49" value="additional relevant attn metadata:&lt;br&gt;* query_start_loc = [0, 5, 12, 15]&lt;br&gt;* seq_lens = [5, 7, 3]&lt;br&gt;* num_actual_tokens = 15" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="944" y="4388" width="400" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-50" value="let&#39;s continue to decode now:" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=16;fontStyle=3;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4508" width="600" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-51" value="let&#39;s say we sampled the following tokens: [14, 15, 16] across the 3 sequences" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4543" width="850" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-52" value="continuous batching makes the above into:" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4573" width="600" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-53" value="input_ids = [1,2,3,4,5,14, 1,6,5,7,8,9,10,15, 1,12,13,16]   ← appended 14,15,16 to sequences&lt;br&gt;positions  = [0,1,2,3,4,5, 0,1,2,3,4,5,6,7,  0,1,2,3]        ← updated to reflect the new state" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3f3f3;strokeColor=#555555;align=left;fontSize=13;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4601" width="1100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-54" value="slot_mapping = [4,5,6,7,8,9, 12,13,14,15,16,17,18,19, 20,21,22,23]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;align=left;fontSize=15;fontFamily=Comic Sans MS;fontStyle=1;fontColor=#6a006a;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4671" width="1100" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-55" value="now we reuse the KVs from prefill step and only compute 1 new token per sequence!" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=15;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4743" width="1100" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-56" value="all of this is possible thanks to the attn metadata (see right) and specialized attn kernels!" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=15;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4768" width="1100" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-57" value="GPU" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=14;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4808" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-58" value="state after&lt;br&gt;fwd pass&lt;br&gt;(decode)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontStyle=2;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4828" width="100" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-59" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="149" y="4803" width="740" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-60" value="blk 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=#336791;fontColor=#ffffff;fontSize=13;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="164" y="4816" width="115" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-61" value="blk 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=#336791;fontColor=#ffffff;fontSize=13;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="299" y="4816" width="115" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-62" value="blk 3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#5a8040;fontColor=#ffffff;fontSize=13;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="434" y="4816" width="115" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-63" value="blk 4" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#5a8040;fontColor=#ffffff;fontSize=13;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="569" y="4816" width="115" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-64" value="blk 5" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=#b07800;fontColor=#ffffff;fontSize=13;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="704" y="4816" width="115" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-65" value="KVs for 6 tokens of 1st sequence" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontColor=#6c8ebf;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="149" y="4861" width="265" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-66" value="KVs for 8 tokens of 2nd sequence" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontColor=#82b366;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="419" y="4861" width="265" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-67" value="KVs for 4 tokens of 3rd seq" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontColor=#d79b00;fontStyle=1;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="684" y="4861" width="205" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-68" value="relevant attn metadata:&lt;br&gt;* query_start_loc = [0, 1, 2, 3]&lt;br&gt;* seq_lens = [6, 8, 4]&lt;br&gt;* num_actual_tokens = 3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="944" y="4803" width="400" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-69" value="SLOT MAPPING FORMULA EXPLAINER" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=17;fontStyle=1;fontColor=#6a006a;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4928" width="700" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-70" value="KEY FORMULA:&lt;br&gt;slot  =  ( block_id  ×  block_size )  +  offset_within_block" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;fontSize=15;fontFamily=Comic Sans MS;fontStyle=1;fontColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="24" y="4966" width="800" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-71" value="Block 1  (Seq 1, tokens 1–4)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontStyle=1;fontSize=13;fontColor=#6c8ebf;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="5046" width="400" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-72" value="Slot 4&lt;br&gt;1×4+0=4&lt;br&gt;token 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="5071" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-73" value="Slot 5&lt;br&gt;1×4+1=5&lt;br&gt;token 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="144" y="5071" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-74" value="Slot 6&lt;br&gt;1×4+2=6&lt;br&gt;token 3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="264" y="5071" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-75" value="Slot 7&lt;br&gt;1×4+3=7&lt;br&gt;token 4" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="384" y="5071" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-76" value="Block 2  (Seq 1, token 5 only — rest empty = internal fragmentation)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontStyle=1;fontSize=13;fontColor=#6c8ebf;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="5156" width="700" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-77" value="Slot 8&lt;br&gt;2×4+0=8&lt;br&gt;token 5" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="5181" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-78" value="Slot 9&lt;br&gt;(empty)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontSize=12;fontColor=#aaaaaa;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="144" y="5181" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-79" value="Slot 10&lt;br&gt;(empty)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontSize=12;fontColor=#aaaaaa;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="264" y="5181" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-80" value="Slot 11&lt;br&gt;(empty)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontSize=12;fontColor=#aaaaaa;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="384" y="5181" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-81" value="Block 3  (Seq 2, tokens 1–4)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontStyle=1;fontSize=13;fontColor=#82b366;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="564" y="5046" width="400" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-82" value="Slot 12&lt;br&gt;3×4+0=12&lt;br&gt;token 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="564" y="5071" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-83" value="Slot 13&lt;br&gt;3×4+1=13&lt;br&gt;token 6" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="684" y="5071" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-84" value="Slot 14&lt;br&gt;3×4+2=14&lt;br&gt;token 5" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="804" y="5071" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-85" value="Slot 15&lt;br&gt;3×4+3=15&lt;br&gt;token 7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="924" y="5071" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-86" value="Block 4  (Seq 2, tokens 5–7 — 75% full)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontStyle=1;fontSize=13;fontColor=#82b366;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="564" y="5156" width="480" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-87" value="Slot 16&lt;br&gt;4×4+0=16&lt;br&gt;token 8" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="564" y="5181" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-88" value="Slot 17&lt;br&gt;4×4+1=17&lt;br&gt;token 9" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="684" y="5181" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-89" value="Slot 18&lt;br&gt;4×4+2=18&lt;br&gt;token 10" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="804" y="5181" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-90" value="Slot 19&lt;br&gt;(empty)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontSize=12;fontColor=#aaaaaa;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="924" y="5181" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-91" value="Block 5  (Seq 3, tokens 1–3)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontStyle=1;fontSize=13;fontColor=#d79b00;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="5268" width="400" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-92" value="Slot 20&lt;br&gt;5×4+0=20&lt;br&gt;token 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="5293" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-93" value="Slot 21&lt;br&gt;5×4+1=21&lt;br&gt;token 12" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="144" y="5293" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-94" value="Slot 22&lt;br&gt;5×4+2=22&lt;br&gt;token 13" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="264" y="5293" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-95" value="Slot 23&lt;br&gt;(empty)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontSize=12;fontColor=#aaaaaa;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="384" y="5293" width="110" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-96" value="PREFILL slot_mapping:&lt;br&gt;slot_mapping = [4, 5, 6, 7, 8,   12, 13, 14, 15, 16, 17, 18,   20, 21, 22]&lt;br&gt;&lt;font color=&quot;#6c8ebf&quot;&gt;◄── Seq 1 (5 tokens) ──►&lt;/font&gt;           &lt;font color=&quot;#82b366&quot;&gt;◄──── Seq 2 (7 tokens) ────►&lt;/font&gt;      &lt;font color=&quot;#d79b00&quot;&gt;◄─ Seq 3 ─►&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;align=left;fontSize=13;fontFamily=Comic Sans MS;fontStyle=1;fontColor=#6a006a;" vertex="1" parent="1">
+          <mxGeometry x="24" y="5388" width="1300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-97" value="DECODE slot_mapping (after 1 new token each):&lt;br&gt;slot_mapping = [4,5,6,7,8,9,   12,13,14,15,16,17,18,19,   20,21,22,23]&lt;br&gt;slot 9 = new Seq1 token (blk2 pos1)    slot 19 = new Seq2 token (blk4 pos3)    slot 23 = new Seq3 token (blk5 pos3)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;align=left;fontSize=13;fontFamily=Comic Sans MS;fontStyle=1;fontColor=#6a006a;" vertex="1" parent="1">
+          <mxGeometry x="24" y="5478" width="1300" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-98" value="BLOCK TABLE — Logical Block → Physical Block Mapping (per sequence)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=17;fontStyle=1;fontColor=#336791;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="5573" width="900" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-99" value="Sequence 1 Block Table:&lt;br&gt;Logical Block 0  →  Physical Block 1  (slots 4–7)&lt;br&gt;Logical Block 1  →  Physical Block 2  (slots 8–11)&lt;br&gt;&lt;i&gt;Non-contiguous in GPU memory — block table bridges the gap!&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="5611" width="400" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-100" value="Sequence 2 Block Table:&lt;br&gt;Logical Block 0  →  Physical Block 3  (slots 12–15)&lt;br&gt;Logical Block 1  →  Physical Block 4  (slots 16–19)&lt;br&gt;&lt;i&gt;That&#39;s why Seq 2 starts at slot 12! (3×4=12)&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="444" y="5611" width="400" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-101" value="Sequence 3 Block Table:&lt;br&gt;Logical Block 0  →  Physical Block 5  (slots 20–23)&lt;br&gt;&lt;br&gt;&lt;i&gt;1 block only — 3 tokens used, slot 23 empty&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;align=left;fontSize=12;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="864" y="5611" width="400" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="vDKtP158vBrgW5-EhDf4-102" value="SUMMARY — How it all fits together&lt;br&gt;&lt;br&gt;1.  Prompts tokenized → each sequence gets N blocks from free block pool via allocate_slots()&lt;br&gt;2.  slot = block_id × block_size + offset  →  this is how every token&#39;s KV physical location is computed&lt;br&gt;3.  slot_mapping = flat array of slot numbers, one per token, in super-sequence order&lt;br&gt;4.  Prefill: all KVs computed and written to their slots.  Decode: only 1 new KV per seq — rest REUSED from slots&lt;br&gt;5.  Block Table maps logical blocks → physical blocks.  Blocks need NOT be contiguous — PagedAttention handles indirection." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;fontSize=13;fontFamily=Comic Sans MS;" vertex="1" parent="1">
+          <mxGeometry x="24" y="5738" width="1360" height="155" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
