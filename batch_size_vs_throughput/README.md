@@ -1,6 +1,6 @@
 # vLLM Throughput vs Batch Size Benchmark
 
-Demonstrates how throughput (tokens/sec) varies with batch size using `vllm serve` and concurrent HTTP requests.
+Demonstrates how throughput, TTFT, and TPOT vary with batch size using `vllm serve` and concurrent streaming HTTP requests.
 
 ---
 
@@ -15,8 +15,22 @@ pip install vllm httpx
 ## How It Works
 
 - `--max-num-seqs` on the server controls how many requests vLLM processes simultaneously
-- The client sends exactly `N` concurrent requests to match the server's batch capacity
+- The client sends exactly `N` concurrent **streaming** requests to match the server's batch capacity
+- Streaming is required to capture **TTFT** — the timestamp of the first token chunk is recorded as it arrives
 - **Rule:** `client batch_size == server --max-num-seqs` for a clean experiment
+
+---
+
+## Metrics Explained
+
+| Metric | Full Name | Formula | What It Measures |
+|--------|-----------|---------|-----------------|
+| **TTFT** | Time to First Token | `t_first_token - t_request_sent` | Prefill phase latency — how long before the user sees anything |
+| **TPOT** | Time Per Output Token | `(total_latency - TTFT) / (output_tokens - 1)` | Decode phase speed — how fast tokens stream after the first |
+| **Agg. TPS** | Aggregate Tokens/sec | `total_tokens / wall_clock_time` | Overall GPU throughput across all concurrent requests |
+
+> **TTFT** is dominated by prompt length and prefill compute.  
+> **TPOT** is dominated by model size, batch size, and KV cache pressure.
 
 ---
 
@@ -25,12 +39,12 @@ pip install vllm httpx
 Pick your target batch size and start the server accordingly:
 
 ```bash
-# batch_size = 8
-vllm serve Qwen/Qwen2.5-1.5B-Instruct \
+# Example: batch_size = 8
+vllm serve Qwen/Qwen3-4B-Instruct-2507 \
     --host 0.0.0.0 \
     --port 8000 \
-    --max-num-seqs 8 \
-    --max-num-batched-tokens 4096 \
+    --max-num-seqs 32 \
+    --max-num-batched-tokens 16384 \
     --dtype auto \
     --gpu-memory-utilization 0.9
 ```
@@ -56,25 +70,17 @@ python benchmark.py
 ---
 
 ## Sample Output
-
+```commandline
+============================================================
+  FINAL SUMMARY TABLE
+============================================================
+ Users |  TTFT p50 |  TTFT p99 |  TPOT p50 |  Tput mean |   Reqs
+────────────────────────────────────────────────────────────────
+     1 |   1230.1ms |   1496.9ms |    11.18ms |      65.9/s |     24
+     2 |    628.1ms |   9809.6ms |    11.56ms |      66.0/s |     44
+     4 |    559.9ms |   1498.0ms |    11.73ms |      67.0/s |     96
+     8 |    558.5ms |   2002.7ms |    11.95ms |      65.0/s |    177
+    16 |    571.4ms |   2198.1ms |    12.20ms |      65.7/s |    377
+    32 |   1143.3ms |   4204.1ms |    12.81ms |      56.5/s |    633
+============================================================
 ```
-Batch Size |  Total Time (s) |    Agg. TPS | Avg Req TPS
-------------------------------------------------------------
-         1 |           1.243 |      103.00 |      103.00
-         4 |           1.512 |      338.62 |       84.65
-         8 |           1.891 |      541.51 |       67.69
-        16 |           2.340 |      874.36 |       54.65
-        32 |           3.102 |     1317.22 |       41.16
-```
-
----
-
-## Key Insight
-
-| Metric | Trend with ↑ Batch Size |
-|--------|------------------------|
-| Aggregate TPS | ↑ Increases (GPU better utilized) |
-| Per-request TPS | ↓ Decreases (each request waits longer) |
-| Total latency | ↑ Increases slightly |
-
-Throughput scales with batch size until GPU memory or compute saturates.

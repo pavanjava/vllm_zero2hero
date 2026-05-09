@@ -8,9 +8,10 @@ dependencies = [
     "numpy>=2.4.4",
     "pandas>=3.0.2",
     "torch>=2.11.0",
-    "transformers>=5.7.0",
-    "huggingface-hub>=1.7.2",
-    "openai>=2.33.0",
-    "locust>=2.43.4"
+    "transformers>=5.8.0",
+    "huggingface-hub>=1.14.0",
+    "openai>=2.36.0",
+    "locust>=2.43.4",
+    "matplotlib>=3.10.9"
 
 ]
