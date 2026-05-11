@@ -64,7 +64,7 @@ vllm serve Qwen/Qwen3-4B-Instruct-2507 \
 ## Step 2: Run the Benchmark
 
 ```bash
-python benchmark.py
+python benchmark_v1.py
 ```
 
 ---
