@@ -11,7 +11,7 @@ Before running, start the vLLM server with --max-num-seqs matching your target b
         --dtype auto --gpu-memory-utilization 0.9
 
 Then run:
-    python benchmark.py
+    python benchmark_v1.py
 """
 
 import sys
