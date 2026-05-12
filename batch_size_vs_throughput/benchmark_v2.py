@@ -8,7 +8,7 @@ Before running, start the vLLM server with --max-num-seqs matching your target b
         --max-model-len 4096 \
         --max-num-seqs 32 \
         --max-num-batched-tokens 16384 \
-        --enable-prefix-caching True\
+        --enable-prefix-caching \
         --dtype auto --gpu-memory-utilization 0.9
 
 Then run:
@@ -28,7 +28,7 @@ from datetime import datetime
 from pathlib import Path
 
 # ── CONFIG ────────────────────────────────────────────────────────────────────
-VLLM_BASE_URL   = "https://fc71qrkv8gmdqh-8000.proxy.runpod.net"
+VLLM_BASE_URL   = "https://fcg0scvsfh4obi-8000.proxy.runpod.net"
 MODEL           = "Qwen/Qwen3-4B-Instruct-2507"
 PROMPT          = "Explain the theory of relativity in detail, covering special and general relativity."
 MAX_TOKENS      = 256
