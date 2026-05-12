@@ -1,0 +1,142 @@
+{
+  "model": "Qwen/Qwen3-4B-Instruct-2507",
+  "remote": "https://fcg0scvsfh4obi-8000.proxy.runpod.net",
+  "prompt_tokens": 12,
+  "max_output_tokens": 256,
+  "duration_per_sweep_secs": 90,
+  "timestamp": "2026-05-12T05:42:31.637877",
+  "results": [
+    {
+      "concurrency": 1,
+      "total_requests": 13,
+      "errors": 1,
+      "ttft": {
+        "p50": 1246.06,
+        "p90": 1438.3,
+        "p99": 34335.0,
+        "mean": 4025.76
+      },
+      "tpot": {
+        "p50": 11.35,
+        "p90": 11.6,
+        "p99": 12.02,
+        "mean": 11.36
+      },
+      "throughput": {
+        "p50": 62.55,
+        "p90": 72.58,
+        "mean": 59.49
+      }
+    },
+    {
+      "concurrency": 2,
+      "total_requests": 47,
+      "errors": 1,
+      "ttft": {
+        "p50": 1165.11,
+        "p90": 1287.95,
+        "p99": 1373.34,
+        "mean": 877.34
+      },
+      "tpot": {
+        "p50": 11.66,
+        "p90": 12.11,
+        "p99": 12.2,
+        "mean": 11.7
+      },
+      "throughput": {
+        "p50": 62.68,
+        "p90": 75.56,
+        "mean": 66.76
+      }
+    },
+    {
+      "concurrency": 4,
+      "total_requests": 96,
+      "errors": 1,
+      "ttft": {
+        "p50": 525.03,
+        "p90": 1281.1,
+        "p99": 1342.44,
+        "mean": 815.09
+      },
+      "tpot": {
+        "p50": 11.81,
+        "p90": 12.04,
+        "p99": 12.45,
+        "mean": 11.8
+      },
+      "throughput": {
+        "p50": 70.52,
+        "p90": 75.16,
+        "mean": 67.33
+      }
+    },
+    {
+      "concurrency": 8,
+      "total_requests": 190,
+      "errors": 0,
+      "ttft": {
+        "p50": 496.34,
+        "p90": 1209.96,
+        "p99": 2493.96,
+        "mean": 678.9
+      },
+      "tpot": {
+        "p50": 11.83,
+        "p90": 12.19,
+        "p99": 35.12,
+        "mean": 12.61
+      },
+      "throughput": {
+        "p50": 72.39,
+        "p90": 74.32,
+        "mean": 68.76
+      }
+    },
+    {
+      "concurrency": 16,
+      "total_requests": 369,
+      "errors": 2,
+      "ttft": {
+        "p50": 523.12,
+        "p90": 1461.63,
+        "p99": 2949.87,
+        "mean": 895.34
+      },
+      "tpot": {
+        "p50": 12.09,
+        "p90": 12.42,
+        "p99": 12.92,
+        "mean": 12.15
+      },
+      "throughput": {
+        "p50": 69.98,
+        "p90": 72.92,
+        "mean": 64.98
+      }
+    },
+    {
+      "concurrency": 32,
+      "total_requests": 664,
+      "errors": 5,
+      "ttft": {
+        "p50": 677.77,
+        "p90": 2608.41,
+        "p99": 4842.37,
+        "mean": 1176.58
+      },
+      "tpot": {
+        "p50": 12.66,
+        "p90": 13.32,
+        "p99": 16.18,
+        "mean": 12.82
+      },
+      "throughput": {
+        "p50": 64.48,
+        "p90": 68.23,
+        "mean": 59.57
+      }
+    }
+  ]
+}
