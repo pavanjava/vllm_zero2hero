@@ -12,6 +12,7 @@ dependencies = [
     "huggingface-hub>=1.14.0",
     "openai>=2.36.0",
     "locust>=2.43.4",
-    "matplotlib>=3.10.9"
+    "matplotlib>=3.10.9",
+    "ollama>=0.6.2"
 
 ]
