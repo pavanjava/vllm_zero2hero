@@ -1,0 +1,229 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.2 Chrome/134.0.6998.205 Electron/35.3.0 Safari/537.36" version="27.0.2">
+  <diagram id="D2wraN72ID4bLtukDRv4" name="Page-1">
+    <mxGraphModel dx="1257" dy="753" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="banner" value="LLM Inference at Scale — Full Picture" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#0f3460;fontSize=22;fontStyle=1;fontColor=#e0e0e0;" parent="1" vertex="1">
+          <mxGeometry x="80" y="20" width="1080" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="banner_sub" value="Every concept from the session and how they connect — follow the arrows" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontColor=#888888;" parent="1" vertex="1">
+          <mxGeometry x="80" y="78" width="1080" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="req_in" value="&lt;b&gt;User Request&lt;/b&gt;&#xa;Prompt tokens arrive" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="510" y="110" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_req_sched" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#6c8ebf;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="172" as="sourcePoint" />
+            <mxPoint x="590" y="202" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sched_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#0f3460;fontSize=12;" parent="1" vertex="1">
+          <mxGeometry x="310" y="204" width="560" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="sched_title" value="vLLM Scheduler" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=15;fontStyle=1;fontColor=#e0e0e0;" parent="1" vertex="1">
+          <mxGeometry x="310" y="208" width="560" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="knob1" value="&lt;b&gt;max-model-len&lt;/b&gt;&#xa;Context ceiling&#xa;per request" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="324" y="236" width="154" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="knob2" value="&lt;b&gt;max-num-batched-tokens&lt;/b&gt;&#xa;Token budget&#xa;per iteration" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="513" y="236" width="154" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="knob3" value="&lt;b&gt;max-num-seqs&lt;/b&gt;&#xa;Parallel&#xa;sequence slots" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontColor=#7d6608;" parent="1" vertex="1">
+          <mxGeometry x="702" y="236" width="154" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="policy_note" value="Policy: FCFS (default) — oldest kept, newest preempted  |  Alternative: Priority scheduling (lower number = higher priority, evict last)" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=11;fontColor=#aaaaaa;" parent="1" vertex="1">
+          <mxGeometry x="310" y="338" width="560" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_sched_prefill" value="Prefill phase" style="endArrow=block;endFill=1;html=1;strokeColor=#b85450;fontSize=11;fontColor=#b85450;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="450" y="334" as="sourcePoint" />
+            <mxPoint x="230" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="prefill_box" value="&lt;b&gt;Prefill Phase&lt;/b&gt;&#xa;Compute K, V for all prompt tokens&#xa;One big forward pass&#xa;Compute-bound (CUDA cores)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="80" y="390" width="300" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_chunked" value="if prompt &gt; budget" style="endArrow=block;endFill=1;html=1;strokeColor=#d6b656;fontSize=10;fontColor=#7d6608;dashed=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" edge="1" target="chunked_box">
+          <mxGeometry x="-0.0089" y="33" relative="1" as="geometry">
+            <mxPoint x="80" y="432" as="sourcePoint" />
+            <mxPoint x="80" y="510" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="27" y="432" />
+              <mxPoint x="27" y="476" />
+              <mxPoint x="27" y="550" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="chunked_box" value="&lt;b&gt;Chunked Prefill&lt;/b&gt;&#xa;Split prompt into chunks (≤ budget)&#xa;Decode-priority each iteration&#xa;Better ITL + GPU utilisation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontColor=#7d6608;" parent="1" vertex="1">
+          <mxGeometry x="80" y="512" width="300" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_prefix" value="if prefix seen before" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;fontSize=10;fontColor=#235126;dashed=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" edge="1" target="prefix_box">
+          <mxGeometry x="0.5208" y="10" relative="1" as="geometry">
+            <mxPoint x="380" y="432" as="sourcePoint" />
+            <mxPoint x="50" y="640" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="420" y="432" />
+              <mxPoint x="420" y="620" />
+              <mxPoint x="420" y="630" />
+              <mxPoint x="420" y="650" />
+              <mxPoint x="420" y="665" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="prefix_box" value="&lt;b&gt;Prefix Caching&lt;/b&gt;&#xa;Hash(tokens) → KV pool lookup&#xa;HIT: skip prefill, load KV (~5 ms)&#xa;MISS: compute + store for reuse&#xa;~94% TTFT reduction on hit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="80" y="620" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_prefill_kv" value="store K,V" style="endArrow=block;endFill=1;html=1;strokeColor=#9673a6;fontSize=10;fontColor=#9673a6;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="432" as="sourcePoint" />
+            <mxPoint x="510" y="432" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kv_box" value="&lt;b&gt;KV Cache&lt;/b&gt;&#xa;Stores Key + Value vectors&#xa;per token, per layer&#xa;Reused every decode step" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontColor=#4d2d61;" parent="1" vertex="1">
+          <mxGeometry x="460" y="390" width="260" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_paged" value="managed by" style="endArrow=block;endFill=1;html=1;strokeColor=#9673a6;fontSize=10;fontColor=#9673a6;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="476" as="sourcePoint" />
+            <mxPoint x="590" y="512" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="paged_box" value="&lt;b&gt;PagedAttention&lt;/b&gt;&#xa;OS-inspired paging for KV memory&#xa;Fixed blocks (not contiguous)&#xa;Block table maps logical → physical&#xa;Waste: 60-80% → &lt;4%" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontColor=#4d2d61;" parent="1" vertex="1">
+          <mxGeometry x="460" y="514" width="260" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_sched_decode" value="Decode phase" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;fontSize=11;fontColor=#235126;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="730" y="334" as="sourcePoint" />
+            <mxPoint x="880" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="decode_box" value="&lt;b&gt;Decode Phase&lt;/b&gt;&#xa;Generate one token per step&#xa;Reads KV cache from HBM&#xa;Memory-BW-bound" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="760" y="390" width="300" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_cb" value="per iteration" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;fontSize=10;fontColor=#235126;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="910" y="476" as="sourcePoint" />
+            <mxPoint x="910" y="512" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cb_box" value="&lt;b&gt;Continuous Batching&lt;/b&gt;&#xa;Finished requests exit immediately&#xa;New requests join mid-batch&#xa;No GPU idle time between requests" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="760" y="514" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_tok_out" value="token" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;fontSize=10;fontColor=#235126;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="910" y="596" as="sourcePoint" />
+            <mxPoint x="910" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eos_check" value="EOS?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="870" y="632" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_loop" value="No — next token" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;fontSize=10;fontColor=#235126;dashed=1;" parent="1" edge="1">
+          <mxGeometry x="0.802" y="-13" relative="1" as="geometry">
+            <mxPoint x="1060" y="432" as="sourcePoint" />
+            <mxPoint x="1060" y="657" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1060" y="432" />
+              <mxPoint x="1090" y="432" />
+              <mxPoint x="1090" y="530" />
+              <mxPoint x="1090" y="590" />
+              <mxPoint x="1090" y="657" />
+              <mxPoint x="1060" y="657" />
+              <mxPoint x="950" y="657" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arr_done" value="Yes — done" style="endArrow=block;endFill=1;html=1;strokeColor=#235126;fontSize=10;fontColor=#235126;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="870" y="657" as="sourcePoint" />
+            <mxPoint x="760" y="657" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="resp_out" value="&lt;b&gt;Response to user&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="600" y="630" width="160" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="divider" value="" style="line;strokeWidth=1;fillColor=none;strokeColor=#444444;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="730" width="1080" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="disagg_section_lbl" value="Advanced Architecture — Disaggregated P/D (separates the two phases onto different machines)" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontColor=#888888;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="742" width="1080" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="pd_p" value="&lt;b&gt;Prefill Node Fleet&lt;/b&gt;&#xa;High FLOPS GPU (H100 SXM)&#xa;Only runs prefill&#xa;Never blocked by decode" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="80" y="768" width="260" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_kv_xfer" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#d6b656;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="342" y="810" as="sourcePoint" />
+            <mxPoint x="430" y="810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kv_xfer_box" value="&lt;b&gt;KV Transfer&lt;/b&gt;&#xa;RDMA / NVLink&#xa;~1–5 ms" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontColor=#7d6608;" parent="1" vertex="1">
+          <mxGeometry x="430" y="784" width="180" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="arr_kv_xfer2" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="612" y="810" as="sourcePoint" />
+            <mxPoint x="700" y="810" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pd_d" value="&lt;b&gt;Decode Node Fleet&lt;/b&gt;&#xa;Large HBM GPU (H100 NVL)&#xa;Only runs decode&#xa;Never blocked by prefill" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="700" y="768" width="260" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="pd_scale" value="Scale prefill fleet for long prompts (RAG, doc QA)     |     Scale decode fleet for long outputs (code, creative)     |     Independent scaling = right GPU for each job" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#0f3460;fontSize=11;fontColor=#cccccc;align=center;" parent="1" vertex="1">
+          <mxGeometry x="80" y="862" width="880" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="solves_lbl" value="What each concept solves" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="80" y="906" width="400" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sol1" value="&lt;b&gt;KV Cache&lt;/b&gt;&#xa;Eliminates redundant K,V&#xa;recomputation every step" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontColor=#4d2d61;" parent="1" vertex="1">
+          <mxGeometry x="80" y="930" width="168" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="sol2" value="&lt;b&gt;PagedAttention&lt;/b&gt;&#xa;Eliminates memory&#xa;fragmentation (→ &lt;4% waste)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontColor=#4d2d61;" parent="1" vertex="1">
+          <mxGeometry x="258" y="930" width="168" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="sol3" value="&lt;b&gt;Continuous Batching&lt;/b&gt;&#xa;Eliminates GPU idle time&#xa;between requests" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="436" y="930" width="168" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="sol4" value="&lt;b&gt;Chunked Prefill&lt;/b&gt;&#xa;Eliminates long-prompt&#xa;starvation of decode" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontColor=#7d6608;" parent="1" vertex="1">
+          <mxGeometry x="614" y="930" width="168" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="sol5" value="&lt;b&gt;Prefix Caching&lt;/b&gt;&#xa;Eliminates repeated prefill&#xa;for shared prefixes (~94% TTFT)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="792" y="930" width="168" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="sol6" value="&lt;b&gt;Disaggregated P/D&lt;/b&gt;&#xa;Eliminates prefill-decode&#xa;interference on same GPU" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="970" y="930" width="168" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="metrics_lbl" value="Key metrics this stack optimises" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1012" width="400" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" value="&lt;b&gt;TTFT&lt;/b&gt;&#xa;Time To First Token&#xa;↓ via prefix cache&#xa;+ chunked prefill" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1036" width="168" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="m2" value="&lt;b&gt;ITL&lt;/b&gt;&#xa;Inter-Token Latency&#xa;↓ via continuous batching&#xa;+ chunked prefill priority" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="258" y="1036" width="168" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="m3" value="&lt;b&gt;Throughput&lt;/b&gt;&#xa;Tokens / second&#xa;↑ via paged attention&#xa;+ continuous batching" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="436" y="1036" width="168" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="m4" value="&lt;b&gt;GPU Memory&lt;/b&gt;&#xa;HBM utilisation&#xa;↑ via paged attention&#xa;(waste 60-80% → &lt;4%)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="614" y="1036" width="168" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="m5" value="&lt;b&gt;Scalability&lt;/b&gt;&#xa;Multi-GPU / multi-node&#xa;↑ via disaggregated P/D&#xa;+ independent fleet scaling" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="792" y="1036" width="168" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="m6" value="&lt;b&gt;Cost&lt;/b&gt;&#xa;Infrastructure spend&#xa;↓ via fewer GPUs&#xa;(better utilisation)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="970" y="1036" width="168" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="footer" value="vLLM ties it all together — PagedAttention + Continuous Batching + Chunked Prefill + Prefix Caching + Scheduler + Disaggregated P/D = production-grade LLM inference at scale" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a1a2e;strokeColor=#0f3460;fontSize=12;fontColor=#e0e0e0;align=center;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1126" width="1080" height="34" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

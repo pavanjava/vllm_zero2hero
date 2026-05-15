@@ -1,0 +1,244 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.2 Chrome/134.0.6998.205 Electron/35.3.0 Safari/537.36" version="27.0.2">
+  <diagram id="o65OmdxRUX6aQKO2bEYM" name="Page-1">
+    <mxGraphModel dx="1257" dy="753" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="vLLM — Scheduler Deep Dive" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=22;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="20" width="780" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="s1_lbl" value="Section 1 — The Three Scheduler Knobs" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="66" width="600" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="s1_sub" value="These three flags together define what the scheduler can and cannot do in every iteration." style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="80" y="90" width="700" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="k1" value="&lt;b&gt;--max-model-len&lt;/b&gt;&#xa;&#xa;Value: 16,000&#xa;&#xa;Per-request context ceiling.&#xa;A single request cannot have&#xa;prompt + output tokens exceeding&#xa;this number. Enforced at admission." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontColor=#0c447c;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="80" y="116" width="220" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="k2" value="&lt;b&gt;--max-num-batched-tokens&lt;/b&gt;&#xa;&#xa;Value: 12,000&#xa;&#xa;Token budget per iteration.&#xa;Total tokens processed in one&#xa;forward pass (prefill + decode)&#xa;cannot exceed this. GPU budget." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontColor=#235126;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="320" y="116" width="220" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="k3" value="&lt;b&gt;--max-num-seqs&lt;/b&gt;&lt;br&gt;&lt;br&gt;Value: 4 | 8 | 16 | 32&lt;br&gt;&lt;br&gt;Parallel sequence slots.&lt;br&gt;Maximum number of requests&lt;br&gt;running simultaneously in&lt;br&gt;one iteration." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontColor=#7d6608;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="560" y="116" width="220" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="k_note" value="All three limits apply simultaneously. A request is admitted only if it fits within ALL three. Whichever limit is hit first — the scheduler stops filling that iteration." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;align=left;" parent="1" vertex="1">
+          <mxGeometry x="80" y="288" width="700" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_lbl" value="Section 2 — Scheduler Policy: FCFS vs Priority" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="340" width="700" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="fcfs_hdr" value="&lt;b&gt;Default: FCFS (First Come First Served)&lt;/b&gt;&#xa;Oldest requests get and keep GPU slots. Newest preempted when memory fills." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="80" y="372" width="360" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fcfs_q_lbl" value="Arrival Queue" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#666666;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="432" width="120" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="fcfs_qa" value="Req A  (t=0s)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="80" y="450" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fcfs_qb" value="Req B  (t=1s)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="80" y="488" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fcfs_qc" value="Req C  (t=2s)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="80" y="526" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fcfs_slot_lbl" value="Active GPU Slots" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#666666;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="260" y="432" width="130" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="fcfs_s1" value="Slot 1  ✓ Done (Req A)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="260" y="450" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fcfs_s2" value="Slot 2  →  Req B" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="260" y="488" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fcfs_s3" value="Slot 3  →  Req C (resumed)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="260" y="526" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fcfs_kv_lbl" value="KV Cache state" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#666666;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="574" width="120" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="fcfs_kv_gpu" value="GPU Memory — 70% used" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="80" y="592" width="360" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="fcfs_kv_cpu" value="CPU Swap — holds paused KV blocks (Req C was swapped out, now resumed)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontColor=#7d6608;" parent="1" vertex="1">
+          <mxGeometry x="80" y="626" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fcfs_rule" value="FCFS rule: when GPU memory fills, the &lt;b&gt;newest&lt;/b&gt; (latest arrival) request is preempted first. KV blocks swapped to CPU. Resumed when space frees." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;align=left;" parent="1" vertex="1">
+          <mxGeometry x="80" y="662" width="361" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="pri_hdr" value="&lt;b&gt;Alternative: Priority Scheduling&lt;/b&gt;&#xa;Set via: policy = SchedulerPolicy.PRIORITY. Lower number = higher priority (served first)." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="480" y="372" width="360" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="pri_q_lbl" value="Priority Queue" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#666666;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="480" y="432" width="130" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="pri_qx" value="Req X   priority=1  (highest)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="480" y="450" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pri_qz" value="Req Z   priority=3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontColor=#7d6608;" parent="1" vertex="1">
+          <mxGeometry x="480" y="488" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pri_qy" value="Req Y   priority=5  (lowest)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="480" y="526" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pri_slot_lbl" value="Active Slots" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;fontColor=#666666;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="700" y="432" width="100" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="pri_s1" value="Slot 1  →  Req X (priority=1)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="700" y="450" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pri_s2" value="Slot 2  →  Req Z (priority=3)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontColor=#7d6608;" parent="1" vertex="1">
+          <mxGeometry x="700" y="488" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pri_s3" value="Slot 3  →  Req Y (priority=5 — preempt first)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="700" y="526" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pri_rule" value="Priority rule: when GPU memory fills, the &lt;b&gt;lowest-priority&lt;/b&gt; request is preempted first (highest number = evicted first), regardless of arrival time." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;align=left;" parent="1" vertex="1">
+          <mxGeometry x="480" y="566" width="419" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="s3_lbl" value="Section 3 — The Failure: 30k Token Request (Qwen 3.5 Vision, video input)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="724" width="800" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="vis_tok" value="&lt;b&gt;Visual tokens&lt;/b&gt;&#xa;18,000" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="80" y="756" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="plus" value="+" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=18;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="252" y="766" width="30" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="txt_tok" value="&lt;b&gt;Text tokens&lt;/b&gt;&#xa;12,000" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontColor=#7d6608;" parent="1" vertex="1">
+          <mxGeometry x="294" y="756" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eq" value="=" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=18;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="466" y="766" width="30" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="total_tok" value="&lt;b&gt;30,000 total tokens&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;fontColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="508" y="756" width="210" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lim1" value="max-model-len = 16,000   →   30,000 &gt; 16,000   →   EXCEEDS — request rejected at admission" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#b85450;align=left;" parent="1" vertex="1">
+          <mxGeometry x="80" y="832" width="638" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="lim2" value="max-num-batched-tokens = 12,000   →   30,000 &gt; 12,000   →   EXCEEDS — single iteration cannot process this" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#b85450;align=left;" parent="1" vertex="1">
+          <mxGeometry x="80" y="874" width="638" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="fail_note" value="Root cause: the request violates BOTH limits simultaneously. No matter how you tune one flag, the other still blocks it. The fix is not a bigger limit — it is breaking the request into chunks." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;align=left;" parent="1" vertex="1">
+          <mxGeometry x="80" y="918" width="638" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="s4_lbl" value="Section 4 — The Fix: Chunked Prefill (vLLM V1 default)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="974" width="700" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="s4_sub" value="30,000 token request split into 8 chunks of ~3,750 tokens each (chunk size ≤ max-num-batched-tokens minus decode budget)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="80" y="998" width="720" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" value="C1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#235126;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1024" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" value="C2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#235126;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="148" y="1024" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" value="C3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#235126;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="216" y="1024" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" value="C4 ←NOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontColor=#7d6608;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="284" y="1024" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" value="C5" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="362" y="1024" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" value="C6" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="430" y="1024" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" value="C7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="498" y="1024" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" value="C8" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="566" y="1024" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="it2_lbl" value="Iteration 2 — budget: 12,000 tokens total  |  Decode gets priority: 2,000 tokens  |  Prefill chunk fills remaining: 10,000 tokens" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontColor=#235126;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1064" width="760" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="slot1" value="Slot 1  →  Decode D  (existing request — priority)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontColor=#4d2d61;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1090" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="slot2" value="Slot 2  →  Decode E  (existing request — priority)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontColor=#4d2d61;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1128" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="slot3" value="Slot 3  →  Prefill chunk C4  (fills remaining budget)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontColor=#7d6608;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1166" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="slot4" value="Slot 4  →  Prefill chunk C5" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1204" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="slot5" value="Slot 5  →  Prefill chunk C6" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1242" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="achieved_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="480" y="1090" width="380" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="achieved_title" value="What chunked prefill achieves" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="500" y="1100" width="340" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="achieved_body" value="1.  30k request no longer exceeds any single limit —&#xa;    each chunk is ≤ 12,000 tokens.&#xa;&#xa;2.  Decode requests are processed FIRST each iteration&#xa;    → better inter-token latency (ITL).&#xa;&#xa;3.  Remaining token budget goes to prefill chunks&#xa;    → GPU always fully utilised.&#xa;&#xa;4.  Enabled by default in vLLM V1." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=12;whiteSpace=wrap;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="500" y="1124" width="350" height="138" as="geometry" />
+        </mxCell>
+        <mxCell id="s5_lbl" value="Section 5 — Summary: How the Scheduler Makes Decisions Each Iteration" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1290" width="780" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="th1" value="Question the scheduler asks" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1320" width="300" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="th2" value="Limit that answers it" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="382" y="1320" width="200" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="th3" value="What happens when exceeded" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="584" y="1320" width="276" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="tr1c1" value="Can this request ever run on this model?" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1354" width="300" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="tr1c2" value="--max-model-len" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="382" y="1354" width="200" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="tr1c3" value="Request rejected immediately at admission" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="584" y="1354" width="276" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="tr2c1" value="How many tokens can this iteration process?" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1388" width="300" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="tr2c2" value="--max-num-batched-tokens" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="382" y="1388" width="200" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="tr2c3" value="No more requests added to this iteration" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontColor=#7d6608;" parent="1" vertex="1">
+          <mxGeometry x="584" y="1388" width="276" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="tr3c1" value="How many requests can run in parallel?" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1422" width="300" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="tr3c2" value="--max-num-seqs" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="382" y="1422" width="200" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="tr3c3" value="No new requests added, existing ones keep running" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontColor=#7d6608;" parent="1" vertex="1">
+          <mxGeometry x="584" y="1422" width="276" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="tr4c1" value="GPU memory full — which request to evict?" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1456" width="300" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="tr4c2" value="Scheduler policy" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="382" y="1456" width="200" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="tr4c3" value="FCFS: newest evicted  |  Priority: lowest priority evicted" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="584" y="1456" width="276" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="tr5c1" value="Token budget exceeds one-shot limit?" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1490" width="300" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="tr5c2" value="Chunked prefill (V1 default)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#aaaaaa;fontSize=11;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="382" y="1490" width="200" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="tr5c3" value="Split into chunks. Decode gets budget first each iteration." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="584" y="1490" width="276" height="32" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
