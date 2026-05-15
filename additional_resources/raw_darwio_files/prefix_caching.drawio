@@ -1,0 +1,262 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.2 Chrome/134.0.6998.205 Electron/35.3.0 Safari/537.36" version="27.0.2">
+  <diagram id="vm2p34IJCdbyGLogOipa" name="Page-1">
+    <mxGraphModel dx="1257" dy="753" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="page_title" value="Prefix Caching — Theory &amp; Diagrams" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=22;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="20" width="700" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="theory_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="68" width="700" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="theory_title" value="What is Prefix Caching?" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="78" width="300" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="theory_body" value="Every LLM request runs a &lt;b&gt;prefill phase&lt;/b&gt; that computes Key and Value (KV) tensors for every input token.&#xa;If multiple requests share an identical prefix — such as a system prompt, few-shot examples, or a long document —&#xa;those computations are &lt;b&gt;repeated work&lt;/b&gt;.&#xa;&#xa;Prefix Caching solves this by:&#xa;  1.  Hashing the token sequence of each prefix block.&#xa;  2.  Storing the resulting KV tensors in a GPU memory pool.&#xa;  3.  On a subsequent request, if the hash matches → &lt;b&gt;skip prefill entirely and load the cached KV directly&lt;/b&gt;.&#xa;&#xa;Result: TTFT drops from ~80 ms (full prefill) to ~5 ms (cache load) — roughly 94% reduction." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=12;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="100" y="106" width="660" height="148" as="geometry" />
+        </mxCell>
+        <mxCell id="s1_title" value="Section 1 — Three requests sharing the same system prompt prefix" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="288" width="700" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="r1_lbl" value="Request 1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="80" y="320" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r1_prefix" value="&lt;b&gt;System prompt (512 tokens)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="80" y="342" width="380" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="r1_suffix" value="&lt;b&gt;User query A&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="470" y="342" width="180" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="r1_badge" value="MISS — compute" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontColor=#7d6608;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="664" y="352" width="116" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="r2_lbl" value="Request 2" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="80" y="396" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r2_prefix" value="&lt;b&gt;System prompt (512 tokens)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="80" y="418" width="380" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="r2_suffix" value="&lt;b&gt;User query B&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="470" y="418" width="180" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="r2_badge" value="HIT — reuse KV" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#235126;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="664" y="428" width="116" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="r3_lbl" value="Request 3" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="80" y="472" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="r3_prefix" value="&lt;b&gt;System prompt (512 tokens)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="80" y="494" width="380" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="r3_suffix" value="&lt;b&gt;User query C&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="470" y="494" width="180" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="r3_badge" value="HIT — reuse KV" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#235126;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="664" y="504" width="116" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="bracket_line" value="" style="line;strokeWidth=1;fillColor=none;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="80" y="550" width="380" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="bracket_note" value="Identical prefix across all 3 requests → cached after Request 1 → Requests 2 &amp; 3 skip prefill entirely" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=11;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="80" y="562" width="580" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1a" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="80" y="592" width="20" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1a_lbl" value="Cached prefix (KV reused)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="106" y="590" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1b" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="320" y="592" width="20" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1b_lbl" value="Unique suffix (always computed)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="346" y="590" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="s2_title" value="Section 2 — What the KV cache stores per prefix block" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="628" width="700" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="kv1" value="&lt;b&gt;Token sequence&lt;/b&gt;&#xa;e.g. tok[0..511]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontColor=#4d2d61;" parent="1" vertex="1">
+          <mxGeometry x="80" y="662" width="160" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="kv_arr1" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#9673a6;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="242" y="689" as="sourcePoint" />
+            <mxPoint x="280" y="689" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kv2" value="&lt;b&gt;Hash(tokens)&lt;/b&gt;&#xa;SHA / rolling hash" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="282" y="662" width="150" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="kv_arr2" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#666666;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="434" y="689" as="sourcePoint" />
+            <mxPoint x="472" y="689" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kv3" value="&lt;b&gt;KV cache block&lt;/b&gt;&#xa;K, V tensors per layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="474" y="662" width="160" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="kv_arr3" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#82b366;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="636" y="689" as="sourcePoint" />
+            <mxPoint x="674" y="689" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kv4" value="&lt;b&gt;GPU memory pool&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="676" y="662" width="100" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="s3_title" value="Section 3 — Latency comparison: cache miss vs cache hit" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="736" width="700" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="t0" value="0 ms" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#999999;" parent="1" vertex="1">
+          <mxGeometry x="160" y="766" width="50" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="t80" value="~80 ms" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#999999;" parent="1" vertex="1">
+          <mxGeometry x="440" y="766" width="60" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="t160" value="~160 ms" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontColor=#999999;" parent="1" vertex="1">
+          <mxGeometry x="590" y="766" width="70" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="miss_lbl" value="Cache MISS" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=12;fontColor=#b85450;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="788" width="100" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="miss_prefill" value="&lt;b&gt;Prefill — 512 tokens (~80 ms)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="190" y="788" width="320" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="miss_d1" value="D1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="520" y="788" width="44" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="miss_d2" value="D2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="572" y="788" width="44" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="miss_dots" value="…" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="620" y="788" width="30" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="miss_ttft_line" value="" style="endArrow=block;startArrow=block;html=1;strokeColor=#b85450;fillColor=#b85450;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="844" as="sourcePoint" />
+            <mxPoint x="518" y="844" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="miss_ttft_lbl" value="TTFT ≈ 80 ms  (full prefill paid)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=11;fontColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="190" y="846" width="328" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="hit_lbl" value="Cache HIT" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=12;fontColor=#235126;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="880" width="100" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="hit_load" value="Load KV&#xa;~5 ms" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="190" y="880" width="70" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="hit_d1" value="D1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="268" y="880" width="44" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="hit_d2" value="D2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="320" y="880" width="44" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="hit_d3" value="D3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="372" y="880" width="44" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="hit_dots" value="…" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;" parent="1" vertex="1">
+          <mxGeometry x="420" y="880" width="30" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="hit_ttft_line" value="" style="endArrow=block;startArrow=block;html=1;strokeColor=#235126;fillColor=#235126;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="936" as="sourcePoint" />
+            <mxPoint x="262" y="936" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hit_ttft_lbl" value="TTFT ≈ 5 ms" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=top;fontSize=11;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="190" y="938" width="72" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="savings_badge" value="~94% TTFT reduction" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontColor=#235126;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="510" y="893" width="180" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="s4_title" value="Section 4 — Cache eviction policy (LRU)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="970" width="700" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="lru1" value="Recently used" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontColor=#235126;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1002" width="140" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="lru_a1" value="" style="endArrow=block;endFill=1;html=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="222" y="1021" as="sourcePoint" />
+            <mxPoint x="250" y="1021" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lru2" value="Older" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="252" y="1002" width="140" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="lru_a2" value="" style="endArrow=block;endFill=1;html=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="394" y="1021" as="sourcePoint" />
+            <mxPoint x="422" y="1021" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lru3" value="Even older" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="424" y="1002" width="140" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="lru_a3" value="" style="endArrow=block;endFill=1;html=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="566" y="1021" as="sourcePoint" />
+            <mxPoint x="594" y="1021" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lru4" value="Evict (LRU)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#b85450;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="596" y="1002" width="140" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="lru_note" value="When GPU memory is full, the least-recently-used prefix block is dropped to make room for new cache entries." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1048" width="656" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="s5_title" value="Section 5 — Where prefix caching shines" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1185" width="700" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="uc1" value="&lt;b&gt;System prompts&lt;/b&gt;&#xa;Same preamble on every request" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontColor=#4d2d61;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1217" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc2" value="&lt;b&gt;Few-shot examples&lt;/b&gt;&#xa;Long demos reused across requests" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontColor=#4d2d61;" parent="1" vertex="1">
+          <mxGeometry x="254" y="1217" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc3" value="&lt;b&gt;Document QA&lt;/b&gt;&#xa;PDF cached, only question varies" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontColor=#4d2d61;" parent="1" vertex="1">
+          <mxGeometry x="428" y="1217" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc4" value="&lt;b&gt;Multi-turn chat&lt;/b&gt;&#xa;Conversation history prefix cached" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontColor=#4d2d61;" parent="1" vertex="1">
+          <mxGeometry x="602" y="1217" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="s6_title" value="Section 6 — Rules for getting a cache hit" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1295" width="700" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="rules_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1327" width="700" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="rules_body" value="1.  Prefix must be &lt;b&gt;byte-identical&lt;/b&gt; — even one extra space produces a different hash → miss.&#xa;&#xa;2.  Tokens must be &lt;b&gt;contiguous from position 0&lt;/b&gt; — cache is prefix-only, not arbitrary substrings.&#xa;&#xa;3.  Same model + same tokenizer — different quantization means different KV tensor layout.&#xa;&#xa;4.  &lt;b&gt;Block-aligned boundaries&lt;/b&gt; — SGLang / vLLM use 16- or 32-token blocks; the prefix must end on a block boundary for a hit." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=12;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="100" y="1337" width="660" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="s7_title" value="Section 7 — Engine support" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1481" width="700" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="eng1" value="&lt;b&gt;SGLang&lt;/b&gt;&#xa;On by default" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1513" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="eng2" value="&lt;b&gt;vLLM&lt;/b&gt;&#xa;--enable-prefix-caching flag" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="244" y="1513" width="170" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="eng3" value="&lt;b&gt;Ollama&lt;/b&gt;&#xa;Automatic — zero config" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="428" y="1513" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="eng4" value="&lt;b&gt;TGI (HuggingFace)&lt;/b&gt;&#xa;Partial support" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontColor=#0c447c;" parent="1" vertex="1">
+          <mxGeometry x="602" y="1513" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="s8_title" value="Section 8 — How Prefix Caching + Chunked Prefill compose" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=15;fontStyle=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1579" width="700" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="compose_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1611" width="700" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="compose_body" value="On a &lt;b&gt;cache miss&lt;/b&gt;: Chunked Prefill processes the long prefix in small chunks (e.g. 512 tokens at a time), &#xa;interleaving decode steps so other requests are not starved. Each chunk&#39;s KV is stored in the cache.&#xa;&#xa;On a &lt;b&gt;cache hit&lt;/b&gt;: The cached prefix is loaded directly — Chunked Prefill never runs for that portion. &#xa;Only the new suffix (user query) goes through prefill, which is tiny and needs no chunking." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=12;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="100" y="1621" width="660" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
