@@ -16,14 +16,14 @@ Requirements:
 
 Usage:
     # Start the app with default settings
-    streamlit run streamlit_openai_chatbot_webserver.py
+    streamlit run chat_interface.py
 
     # Start with custom vLLM API endpoint
     VLLM_API_BASE="http://your-server:8000/v1" \
-        streamlit run streamlit_openai_chatbot_webserver.py
+        streamlit run chat_interface.py
 
     # Enable debug mode
-    streamlit run streamlit_openai_chatbot_webserver.py \
+    streamlit run chat_interface.py \
         --logger.level=debug
 """
 
@@ -35,7 +35,7 @@ from openai import OpenAI
 
 # Get command line arguments from environment variables
 openai_api_key = os.getenv("VLLM_API_KEY", "EMPTY")
-openai_api_base = os.getenv("VLLM_API_BASE", "http://localhost:8000/v1")
+openai_api_base = os.getenv("VLLM_API_BASE", "https://d18emwryhf0zf4-8000.proxy.runpod.net/v1")
 
 # Initialize session states for managing chat sessions
 if "sessions" not in st.session_state:

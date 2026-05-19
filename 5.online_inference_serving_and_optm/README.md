@@ -2,13 +2,19 @@
 
 ### Launch vLLM with prefix cache, chunked-prefill, quantization
 ```commandline
+pip install vllm
+```
+```commandline
+wget https://raw.githubusercontent.com/vllm-project/vllm/main/examples/tool_chat_template_gemma4.jinja
+```
+```commandline
 vllm serve google/gemma-4-31B-it \
   --port 8000 \
   --max-model-len ${VLLM_MAX_MODEL_LEN:-32768} \
-  --tensor-parallel-size ${VLLM_TENSOR_PARALLEL_SIZE:-2} \
+  --tensor-parallel-size ${VLLM_TENSOR_PARALLEL_SIZE:-1} \
   --max-num-seqs ${VLLM_MAX_NUM_SEQS:-32} \
   --reasoning-parser gemma4 \
-  --chat-template examples/tool_chat_template_gemma4.jinja \
+  --chat-template /root/tool_chat_template_gemma4.jinja \
   --enable-prefix-caching \
   --enable-chunked-prefill \
   --gpu-memory-utilization ${VLLM_GPU_MEMORY_UTIL:-0.90} \
@@ -57,3 +63,9 @@ vllm serve google/gemma-4-31B-it \
 - Supports sharing one KV cache across multiple vLLM engine instances
 - Ships fixes ahead of the version vendored into vLLM — always tracks latest protocol
 - HTTP management/metrics endpoint exposed at `localhost:8080`
+
+### Issue Resolution
+- If RuntimeError: FlashInfer requires GPUs with sm75 or higher Then disable FLASHINFER
+```commandline
+export VLLM_USE_FLASHINFER_SAMPLER=0
+```
